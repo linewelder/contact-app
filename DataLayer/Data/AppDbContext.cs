@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using DataLayer.Model;
+using Microsoft.EntityFrameworkCore;
 
 namespace DataLayer.Data;
 
@@ -12,4 +13,7 @@ public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(op
     {
         modelBuilder.ApplyConfigurationsFromAssembly(typeof(AppDbContext).Assembly);
     }
+
+    public DbSet<Contact> Contacts { get; set; }
+    public DbSet<ContactGroup> ContactGroups { get; set; }
 }
