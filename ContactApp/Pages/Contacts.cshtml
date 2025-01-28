@@ -1,0 +1,39 @@
+@page
+@using ServiceLayer.ContactServices.Dtos
+@model ContactApp.Pages.Contacts
+
+@{
+    ViewData["Title"] = "Contacts";
+}
+
+<h1>Contacts</h1>
+
+<form id="sort-filter-form" method="get">
+    <input asp-for="Search" name="Search"
+           onchange="onSearchParamsChange()"></input>
+
+    <select asp-for="SortBy" name="SortBy"
+            asp-items="Html.GetEnumSelectList<SortContactsBy>()"
+            onchange="onSearchParamsChange()"></select>
+</form>
+
+@foreach (var contact in Model.ContactList)
+{
+    <div>
+        <h2>@contact.FirstName @contact.LastName</h2>
+        <p>@contact.Email</p>
+        <ul>
+            @foreach (var group in contact.ContactGroups)
+            {
+                <li>@group</li>
+            }
+        </ul>
+    </div>
+}
+
+@section Scripts
+{
+    <script>
+        const onSearchParamsChange = () => document.getElementById('sort-filter-form').submit();
+    </script>
+}
