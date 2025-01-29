@@ -17,6 +17,10 @@
             onchange="onSearchParamsChange()"></select>
 </form>
 
+<p>
+    <a asp-page="Create">Add New</a>
+</p>
+
 @foreach (var contact in Model.ContactList)
 {
     <div>

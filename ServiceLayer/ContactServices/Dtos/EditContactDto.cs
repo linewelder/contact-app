@@ -16,23 +16,27 @@ public class EditContactDto
     /// <summary>
     /// First name
     /// </summary>
+    [Display(Name = "First Name")]
     [Required, MaxLength(Contact.MaxNameLength)]
     public required string FirstName { get; set; }
 
     /// <summary>
     /// Last name
     /// </summary>
+    [Display(Name = "Last Name")]
     [Required, MaxLength(Contact.MaxNameLength)]
     public required string LastName { get; set; }
 
     /// <summary>
     /// E-mail address
     /// </summary>
+    [Display(Name = "E-mail Address")]
     [Required, MaxLength(Contact.MaxEmailLength), EmailAddress]
     public required string Email { get; set; }
 
     /// <summary>
     /// Contact groups the contact belongs to
     /// </summary>
-    public required List<string> ContactGroups { get; set; }
+    [Display(Name = "Groups")]
+    public List<string> ContactGroups { get; set; } = [];
 }
