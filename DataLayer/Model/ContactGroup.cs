@@ -1,10 +1,12 @@
 using System.ComponentModel.DataAnnotations;
+using Microsoft.EntityFrameworkCore;
 
 namespace DataLayer.Model;
 
 /// <summary>
 /// Group of contacts, for example to use in marketing a campaign
 /// </summary>
+[Index(nameof(Name), IsUnique = true)]
 public class ContactGroup
 {
     /// <summary>
