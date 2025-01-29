@@ -12,4 +12,8 @@
       <ProjectReference Include="..\ServiceLayer\ServiceLayer.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="8.0.12" />
+    </ItemGroup>
+
 </Project>

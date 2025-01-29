@@ -5,7 +5,8 @@ using ServiceLayer;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddRazorPages();
+var pages = builder.Services.AddRazorPages();
+if (builder.Environment.IsDevelopment()) pages.AddRazorRuntimeCompilation();
 
 var connectionString = builder.Configuration.GetConnectionString("Default")
                        ?? throw new InvalidOperationException("Connection string 'Default' not found");
