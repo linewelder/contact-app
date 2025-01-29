@@ -12,7 +12,7 @@
     <div class="row align-items-end mb-1">
         <div class="col">
             <input asp-for="Search" name="Search"
-                   onchange="onSearchParamsChange()"
+                   onchange="onSearchFieldChange()"
                    placeholder="Search"
                    class="form-control"></input>
         </div>
@@ -22,7 +22,7 @@
             <select asp-for="SortBy" name="SortBy"
                     asp-items="Html.GetEnumSelectList<SortContactsBy>()"
                     id="sort-by"
-                    onchange="onSearchParamsChange()"
+                    onchange="submitSortFilterForm()"
                     class="form-select"></select>
         </div>
 
@@ -71,10 +71,11 @@
 @section Scripts
 {
     <script>
-        const onSearchParamsChange = () => document.getElementById('sort-filter-form').submit();
+        const submitSortFilterForm = () => document.getElementById('sort-filter-form').submit();
+        const onSearchFieldChange = () => goToPage(1);
         const goToPage = (page) => {
             document.getElementById('page-number').value = page;
-            onSearchParamsChange();
+            submitSortFilterForm();
         };
     </script>
 }
