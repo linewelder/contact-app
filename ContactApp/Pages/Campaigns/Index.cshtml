@@ -7,3 +7,45 @@
 
 <h1>Marketing Campaigns</h1>
 <a asp-page="New" class="btn btn-primary">Start New</a>
+
+<form id="sort-filter-form" method="get">
+    <div class="row align-items-baseline mb-3">
+        <input asp-for="PageNumber" name="PageNumber" id="page-number" class="d-none"/>
+
+        <div class="col-auto">
+            <button class="btn btn-primary" @(Model.PageNumber > 1 ? "" : "disabled")
+                    onclick="goToPage(@Model.PageNumber - 1)">Previous</button>
+        </div>
+        <div class="col text-center">
+            Page @Model.PageNumber out of @Model.TotalPages
+        </div>
+        <div class="col-auto">
+            <button class="btn btn-primary" @(Model.PageNumber < Model.TotalPages ? "" : "disabled")
+                    onclick="goToPage(@Model.PageNumber + 1)">Next</button>
+        </div>
+    </div>
+</form>
+
+@if (Model.Campaigns.Count == 0)
+{
+    <h2 class="mt-5 display-5 text-center text-secondary">No Campaigns Yet</h2>
+}
+
+@foreach (var campaign in Model.Campaigns)
+{
+    <div>
+        <h2>@campaign.Subject - @campaign.Date</h2>
+        <p>@campaign.TargetGroup (@UiHelpers.Pluralize(campaign.NumberContactsTargeted, "contact", "contacts"))</p>
+    </div>
+}
+
+@section Scripts
+{
+    <script>
+        const onSearchParamsChange = () => document.getElementById('sort-filter-form').submit();
+        const goToPage = (page) => {
+            document.getElementById('page-number').value = page;
+            onSearchParamsChange();
+        };
+    </script>
+}
