@@ -1,0 +1,140 @@
+[
+  {
+    "firstName": "John",
+    "lastName": "Doe",
+    "email": "john.doe@mail.com",
+    "groups": ["Males", "Johns"]
+  },
+  {
+    "firstName": "Krzysztof",
+    "lastName": "Kowalski",
+    "email": "kk264@mail.com",
+    "groups": ["Males"]
+  },
+  {
+    "firstName": "Jan",
+    "lastName": "Nowak",
+    "email": "nowak@mail.com",
+    "groups": ["Males", "Johns"]
+  },
+  {
+    "firstName": "Sophia",
+    "lastName": "Clark",
+    "email": "sophia.clark@mail.com",
+    "groups": ["Athletes", "Bookworms"]
+  },
+  {
+    "firstName": "Ethan",
+    "lastName": "Jones",
+    "email": "ethan.jones@mail.com",
+    "groups": ["Athletes", "Night Owls"]
+  },
+  {
+    "firstName": "Olivia",
+    "lastName": "Martinez",
+    "email": "olivia.martinez@mail.com",
+    "groups": ["Bookworms", "Coffee Lovers"]
+  },
+  {
+    "firstName": "Mason",
+    "lastName": "Anderson",
+    "email": "mason.anderson@mail.com",
+    "groups": ["Night Owls", "Pet Owners"]
+  },
+  {
+    "firstName": "Isabella",
+    "lastName": "Harris",
+    "email": "isabella.harris@mail.com",
+    "groups": ["Morning People", "Coffee Lovers"]
+  },
+  {
+    "firstName": "Aiden",
+    "lastName": "Taylor",
+    "email": "aiden.taylor@mail.com",
+    "groups": ["Tech Enthusiasts", "Night Owls"]
+  },
+  {
+    "firstName": "Charlotte",
+    "lastName": "Thomas",
+    "email": "charlotte.thomas@mail.com",
+    "groups": ["Travelers", "Foodies"]
+  },
+  {
+    "firstName": "Lucas",
+    "lastName": "White",
+    "email": "lucas.white@mail.com",
+    "groups": ["Cyclists", "Movie Buffs"]
+  },
+  {
+    "firstName": "Mia",
+    "lastName": "Davis",
+    "email": "mia.davis@mail.com",
+    "groups": ["Cyclists", "Bookworms"]
+  },
+  {
+    "firstName": "Henry",
+    "lastName": "Brown",
+    "email": "henry.brown@mail.com",
+    "groups": ["Pet Owners", "Morning People"]
+  },
+  {
+    "firstName": "Ella",
+    "lastName": "Wilson",
+    "email": "ella.wilson@mail.com",
+    "groups": ["Artists", "Foodies"]
+  },
+  {
+    "firstName": "Liam",
+    "lastName": "Moore",
+    "email": "liam.moore@mail.com",
+    "groups": ["Tech Enthusiasts", "Cyclists"]
+  },
+  {
+    "firstName": "Grace",
+    "lastName": "Taylor",
+    "email": "grace.taylor@mail.com",
+    "groups": ["Travelers", "Morning People"]
+  },
+  {
+    "firstName": "James",
+    "lastName": "Hughes",
+    "email": "james.hughes@mail.com",
+    "groups": ["Movie Buffs", "Night Owls"]
+  },
+  {
+    "firstName": "Amelia",
+    "lastName": "Scott",
+    "email": "amelia.scott@mail.com",
+    "groups": ["Artists", "Coffee Lovers"]
+  },
+  {
+    "firstName": "Benjamin",
+    "lastName": "Hill",
+    "email": "benjamin.hill@mail.com",
+    "groups": ["Foodies", "Athletes"]
+  },
+  {
+    "firstName": "Lily",
+    "lastName": "King",
+    "email": "lily.king@mail.com",
+    "groups": ["Travelers", "Bookworms"]
+  },
+  {
+    "firstName": "Jack",
+    "lastName": "Adams",
+    "email": "jack.adams@mail.com",
+    "groups": ["Pet Owners", "Movie Buffs"]
+  },
+  {
+    "firstName": "Scarlett",
+    "lastName": "Nelson",
+    "email": "scarlett.nelson@mail.com",
+    "groups": ["Cyclists", "Tech Enthusiasts"]
+  },
+  {
+    "firstName": "Michael",
+    "lastName": "Baker",
+    "email": "michael.baker@mail.com",
+    "groups": ["Athletes", "Night Owls"]
+  }
+]

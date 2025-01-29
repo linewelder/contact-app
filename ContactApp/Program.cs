@@ -1,3 +1,4 @@
+using ContactApp;
 using DataLayer.Data;
 using Microsoft.EntityFrameworkCore;
 using ServiceLayer;
@@ -19,6 +20,10 @@ if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Error");
     app.UseHsts();
+}
+else
+{
+    await app.SetupDatabaseAsync();
 }
 
 app.UseHttpsRedirection();
