@@ -9,17 +9,28 @@
 <h1>Contacts</h1>
 
 <form id="sort-filter-form" method="get">
-    <input asp-for="Search" name="Search"
-           onchange="onSearchParamsChange()"></input>
+    <div class="row align-items-end mb-3">
+        <div class="col">
+            <input asp-for="Search" name="Search"
+                   onchange="onSearchParamsChange()"
+                   placeholder="Search"
+                   class="form-control"></input>
+        </div>
 
-    <select asp-for="SortBy" name="SortBy"
-            asp-items="Html.GetEnumSelectList<SortContactsBy>()"
-            onchange="onSearchParamsChange()"></select>
+        <div class="col-2">
+            <label for="sort-by">Sort By:</label>
+            <select asp-for="SortBy" name="SortBy"
+                    asp-items="Html.GetEnumSelectList<SortContactsBy>()"
+                    id="sort-by"
+                    onchange="onSearchParamsChange()"
+                    class="form-select"></select>
+        </div>
+
+        <div class="col-1">
+            <a class="btn btn-outline-primary text-nowrap" asp-page="Create">Add New</a>
+        </div>
+    </div>
 </form>
-
-<p>
-    <a asp-page="Create">Add New</a>
-</p>
 
 @foreach (var contact in Model.ContactList)
 {
