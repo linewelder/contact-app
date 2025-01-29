@@ -4,9 +4,9 @@ using Microsoft.EntityFrameworkCore;
 using ServiceLayer.ContactServices;
 using ServiceLayer.ContactServices.Dtos;
 
-namespace ContactApp.Pages;
+namespace ContactApp.Pages.Contacts;
 
-public class Contacts(IListContactsService service) : PageModel
+public class Index(IListContactsService service) : PageModel
 {
     [BindProperty(SupportsGet = true)]
     public string? Search { get; set; }
