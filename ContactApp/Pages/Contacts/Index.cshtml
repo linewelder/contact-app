@@ -32,6 +32,11 @@
     </div>
 </form>
 
+@if (Model.ContactList.Count == 0)
+{
+    <h2 class="mt-5 display-5 text-center text-secondary">No Contacts Found</h2>
+}
+
 @foreach (var contact in Model.ContactList)
 {
     <div>
