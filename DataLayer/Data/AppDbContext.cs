@@ -16,4 +16,5 @@ public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(op
 
     public DbSet<Contact> Contacts { get; set; }
     public DbSet<ContactGroup> ContactGroups { get; set; }
+    public DbSet<Campaign> Campaigns { get; set; }
 }
