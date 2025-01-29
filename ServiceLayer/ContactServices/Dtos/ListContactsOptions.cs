@@ -6,6 +6,11 @@ namespace ServiceLayer.ContactServices.Dtos;
 public class ListContactsOptions
 {
     /// <summary>
+    /// Number of items per page
+    /// </summary>
+    public const int ItemsPerPage = 10;
+
+    /// <summary>
     /// Search contacts by
     /// </summary>
     public string? Search { get; set; }
@@ -14,4 +19,9 @@ public class ListContactsOptions
     /// Chosen sorting
     /// </summary>
     public SortContactsBy SortBy { get; set; }
+
+    /// <summary>
+    /// Current chosen page
+    /// </summary>
+    public int PageNumber { get; set; }
 }

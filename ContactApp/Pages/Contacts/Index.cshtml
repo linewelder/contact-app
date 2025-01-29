@@ -9,7 +9,7 @@
 <h1>Contacts</h1>
 
 <form id="sort-filter-form" method="get">
-    <div class="row align-items-end mb-3">
+    <div class="row align-items-end mb-1">
         <div class="col">
             <input asp-for="Search" name="Search"
                    onchange="onSearchParamsChange()"
@@ -26,8 +26,23 @@
                     class="form-select"></select>
         </div>
 
-        <div class="col-1">
+        <div class="col-auto">
             <a class="btn btn-outline-primary text-nowrap" asp-page="Create">Add New</a>
+        </div>
+    </div>
+    <div class="row align-items-baseline mb-3">
+        <input asp-for="PageNumber" name="PageNumber" id="page-number" class="d-none"/>
+
+        <div class="col-auto">
+            <button class="btn btn-primary" @(Model.PageNumber > 1 ? "" : "disabled")
+               onclick="goToPage(@Model.PageNumber - 1)">Previous</button>
+        </div>
+        <div class="col text-center">
+            Page @Model.PageNumber out of @Model.TotalPages
+        </div>
+        <div class="col-auto">
+            <button class="btn btn-primary" @(Model.PageNumber < Model.TotalPages ? "" : "disabled")
+               onclick="goToPage(@Model.PageNumber + 1)">Next</button>
         </div>
     </div>
 </form>
@@ -57,5 +72,9 @@
 {
     <script>
         const onSearchParamsChange = () => document.getElementById('sort-filter-form').submit();
+        const goToPage = (page) => {
+            document.getElementById('page-number').value = page;
+            onSearchParamsChange();
+        };
     </script>
 }

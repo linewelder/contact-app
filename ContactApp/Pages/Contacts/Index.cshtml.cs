@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.EntityFrameworkCore;
+using ServiceLayer;
 using ServiceLayer.ContactServices;
 using ServiceLayer.ContactServices.Dtos;
 
@@ -14,14 +14,25 @@ public class Index(IListContactsService service) : PageModel
     [BindProperty(SupportsGet = true)]
     public SortContactsBy SortBy { get; set; }
 
+    [BindProperty(SupportsGet = true)]
+    public int PageNumber { get; set; }
+
+    public int TotalPages { get; set; }
+
     public List<ContactListDto> ContactList { get; private set; } = [];
 
     public async Task OnGetAsync()
     {
-        ContactList = await service.ListContacts(new ListContactsOptions
+        if (PageNumber < 1) PageNumber = 1;
+
+        var contacts = await service.ListContacts(new ListContactsOptions
         {
             Search = Search,
             SortBy = SortBy,
-        }).ToListAsync();
+            PageNumber = PageNumber,
+        }).PageAsync(PageNumber - 1, ListContactsOptions.ItemsPerPage);
+
+        ContactList = contacts.Items;
+        TotalPages = UiHelpers.TotalItemsToPages(contacts.TotalCount, ListContactsOptions.ItemsPerPage);
     }
 }
