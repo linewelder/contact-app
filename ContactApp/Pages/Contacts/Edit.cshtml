@@ -1,0 +1,46 @@
+@page "/contacts/{contactId:int}/edit"
+@model ContactApp.Pages.Contacts.Edit
+
+@{
+    ViewData["Title"] = $"Edit {Model.Contact.FirstName} {Model.Contact.LastName}";
+}
+
+<form method="post">
+    <div asp-validation-summary="ModelOnly"></div>
+
+    <div class="form-group mt-2">
+        <label for="firstName">First name:</label>
+        <input asp-for="Contact.FirstName" name="Contact.FirstName"
+               id="firstName" class="form-control"></input>
+        <span asp-validation-for="Contact.FirstName" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mt-2">
+        <label for="lastName">Last name:</label>
+        <input asp-for="Contact.LastName" name="Contact.LastName"
+               id="lastName" class="form-control"></input>
+        <span asp-validation-for="Contact.LastName" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mt-2">
+        <label for="email">Last name:</label>
+        <input asp-for="Contact.Email" name="Contact.Email"
+               id="email" class="form-control"></input>
+        <span asp-validation-for="Contact.Email" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mt-2">
+        <label for="groups">Groups:</label>
+        <select asp-for="Contact.ContactGroups" asp-items="Model.AvailableGroups"
+                id="groups" class="form-select" multiple="multiple"></select>
+        <span asp-validation-for="Contact.ContactGroups" class="text-danger"></span>
+    </div>
+
+    <div class="mt-3">
+        <button class="btn btn-primary" type="submit">Submit</button>
+    </div>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

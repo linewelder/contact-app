@@ -20,7 +20,9 @@
 @foreach (var contact in Model.ContactList)
 {
     <div>
-        <h2>@contact.FirstName @contact.LastName</h2>
+        <h2><a asp-page="Edit" asp-route-contactId="@contact.ContactId">
+            @contact.FirstName @contact.LastName
+        </a></h2>
         <p>@contact.Email</p>
         <ul>
             @foreach (var group in contact.ContactGroups)
