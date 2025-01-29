@@ -15,7 +15,7 @@ public class Index(IListContactsService service) : PageModel
     public SortContactsBy SortBy { get; set; }
 
     [BindProperty(SupportsGet = true)]
-    public int PageNumber { get; set; }
+    public int PageNumber { get; set; } = 1;
 
     public int TotalPages { get; set; }
 
@@ -29,7 +29,6 @@ public class Index(IListContactsService service) : PageModel
         {
             Search = Search,
             SortBy = SortBy,
-            PageNumber = PageNumber,
         }).PageAsync(PageNumber - 1, ListContactsOptions.ItemsPerPage);
 
         ContactList = contacts.Items;

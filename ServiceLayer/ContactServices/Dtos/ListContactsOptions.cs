@@ -19,9 +19,4 @@ public class ListContactsOptions
     /// Chosen sorting
     /// </summary>
     public SortContactsBy SortBy { get; set; }
-
-    /// <summary>
-    /// Current chosen page
-    /// </summary>
-    public int PageNumber { get; set; }
 }
