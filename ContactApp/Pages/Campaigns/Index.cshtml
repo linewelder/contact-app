@@ -9,20 +9,14 @@
 <a asp-page="New" class="btn btn-primary">Start New</a>
 
 <form id="sort-filter-form" method="get">
-    <div class="row align-items-baseline mb-3">
+    <div class="text-center mb-3">
         <input asp-for="PageNumber" name="PageNumber" id="page-number" class="d-none"/>
 
-        <div class="col-auto">
-            <button class="btn btn-primary" @(Model.PageNumber > 1 ? "" : "disabled")
-                    onclick="goToPage(@Model.PageNumber - 1)">Previous</button>
-        </div>
-        <div class="col text-center">
-            Page @Model.PageNumber out of @Model.TotalPages
-        </div>
-        <div class="col-auto">
-            <button class="btn btn-primary" @(Model.PageNumber < Model.TotalPages ? "" : "disabled")
-                    onclick="goToPage(@Model.PageNumber + 1)">Next</button>
-        </div>
+        <button class="btn btn-primary me-2" @(Model.PageNumber > 1 ? "" : "disabled")
+                onclick="goToPage(@Model.PageNumber - 1)"><<</button>
+        Page @Model.PageNumber out of @Model.TotalPages
+        <button class="btn btn-primary ms-2" @(Model.PageNumber < Model.TotalPages ? "" : "disabled")
+                onclick="goToPage(@Model.PageNumber + 1)">>></button>
     </div>
 </form>
 
