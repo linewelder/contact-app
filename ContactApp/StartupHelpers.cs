@@ -1,4 +1,5 @@
 using DataLayer.Data;
+using Microsoft.EntityFrameworkCore;
 using ServiceLayer.SeedingServices;
 
 namespace ContactApp;
@@ -20,16 +21,12 @@ public static class StartupHelpers
 
         try
         {
-            await context.Database.EnsureDeletedAsync();
-            await context.Database.EnsureCreatedAsync();
-            await context.SeedDatabaseIfNoContacts();
-
-            // var arePendingMigrations = (await context.Database.GetPendingMigrationsAsync()).Any();
-            // await context.Database.MigrateAsync();
-            // if (arePendingMigrations)
-            // {
-            //     await context.SeedDatabaseIfNoContacts();
-            // }
+            var arePendingMigrations = (await context.Database.GetPendingMigrationsAsync()).Any();
+            await context.Database.MigrateAsync();
+            if (arePendingMigrations)
+            {
+                await context.SeedDatabaseIfNoContacts();
+            }
         }
         catch (Exception ex)
         {
