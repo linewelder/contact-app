@@ -18,7 +18,7 @@ public class New(INewCampaignService service) : PageModel
     /// DTO of the new campaign
     /// </summary>
     [BindProperty]
-    public NewCampaignDto NewCampaignDto { get; set; }
+    public NewCampaignDto NewCampaignDto { get; set; } = null!;
 
     /// <summary>
     /// Number of contacts in selected group
