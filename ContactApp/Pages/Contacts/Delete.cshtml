@@ -1,0 +1,25 @@
+@page "/Contacts/{contactId:int}/Delete"
+@model ContactApp.Pages.Contacts.Delete
+
+@{
+    ViewData["Title"] = $"Delete {Model.Contact.FirstName} {Model.Contact.LastName}";
+}
+
+<h1>Are you sure you want to delete "@Model.Contact.FirstName @Model.Contact.LastName"?</h1>
+
+<p><b>First Name:</b> @Model.Contact.FirstName</p>
+<p><b>Last Name:</b> @Model.Contact.LastName</p>
+<p><b>Email:</b> @Model.Contact.Email</p>
+
+<p><b>Groups:</b></p>
+<ul>
+    @foreach (var group in Model.Contact.ContactGroups)
+    {
+        <li>@group.Name</li>
+    }
+</ul>
+
+<form method="post">
+    <button type="submit" class="btn btn-outline-danger">Delete</button>
+    <a class="btn btn-primary" asp-page="Edit" asp-route-contactId="@Model.Contact.ContactId">Go back</a>
+</form>

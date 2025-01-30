@@ -39,4 +39,14 @@ public class EditContactDto
     /// </summary>
     [Display(Name = "Groups")]
     public List<string> ContactGroups { get; set; } = [];
+
+    public static EditContactDto FromContact(Contact contact) =>
+        new()
+        {
+            ContactId = contact.ContactId,
+            FirstName = contact.FirstName,
+            LastName = contact.LastName,
+            Email = contact.Email,
+            ContactGroups = contact.ContactGroups.Select(g => g.Name).ToList(),
+        };
 }

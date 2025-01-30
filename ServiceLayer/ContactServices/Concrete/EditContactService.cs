@@ -17,14 +17,7 @@ public class EditContactService(AppDbContext context) : IEditContactService
         var contact = await FindContactWithGroups(id);
         if (contact is null) return null;
 
-        return new EditContactDto
-        {
-            ContactId = contact.ContactId,
-            FirstName = contact.FirstName,
-            LastName = contact.LastName,
-            Email = contact.Email,
-            ContactGroups = contact.ContactGroups.Select(g => g.Name).ToList(),
-        };
+        return EditContactDto.FromContact(contact);
     }
 
     public IEnumerable<ValidationResult> Errors { get; private set; } = [];
