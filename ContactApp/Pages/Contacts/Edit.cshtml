@@ -32,7 +32,7 @@
     </div>
 
     <div class="form-group mt-2">
-        <label for="groups">Groups:</label>
+        <label for="groups">Groups: (<a asp-page="/Groups/Index">manage all</a>)</label>
         <select asp-for="Contact.ContactGroups" asp-items="Model.AvailableGroups"
                 id="groups" class="form-select" multiple="multiple"></select>
         <span asp-validation-for="Contact.ContactGroups" class="text-danger"></span>
