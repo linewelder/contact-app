@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using System.Net.Mail;
 
 namespace DataLayer.Model;
 
@@ -44,4 +45,9 @@ public class Contact
     /// Contact groups the contact belongs to
     /// </summary>
     public ICollection<ContactGroup> ContactGroups { get; set; } = null!;
+
+    /// <summary>
+    /// Format contact as MailAddress
+    /// </summary>
+    public MailAddress MailAddress => new(Email, $"{FirstName} {LastName}");
 }
