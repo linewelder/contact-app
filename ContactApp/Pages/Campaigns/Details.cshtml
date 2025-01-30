@@ -1,0 +1,18 @@
+@page "{campaignId:int}"
+@model ContactApp.Pages.Campaigns.Details
+
+@{
+    ViewData["Title"] = $"{Model.Campaign.Subject}";
+}
+
+<h1>@Model.Campaign.Subject</h1>
+
+<p class="lead">
+    <b>Group:</b> @Model.Campaign.TargetGroup.Name
+    (@UiHelpers.Pluralize(Model.Campaign.NumberContactsTargeted, "contact", "contacts"))
+    - @Model.Campaign.Date
+</p>
+
+<p>
+    @Model.Campaign.Contents
+</p>

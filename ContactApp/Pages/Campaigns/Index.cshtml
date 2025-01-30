@@ -31,7 +31,7 @@
 @foreach (var campaign in Model.Campaigns)
 {
     <div>
-        <h2>@campaign.Subject - @campaign.Date</h2>
+        <h2><a asp-page="Details" asp-route-campaignId="@campaign.CampaignId">@campaign.Subject</a> - @campaign.Date</h2>
         <p>@campaign.TargetGroup (@UiHelpers.Pluralize(campaign.NumberContactsTargeted, "contact", "contacts"))</p>
     </div>
 }
