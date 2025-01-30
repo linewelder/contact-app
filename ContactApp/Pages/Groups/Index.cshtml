@@ -41,9 +41,15 @@
                 <td>
                     <a asp-page="/Campaigns/New" asp-route-selectedGroup="@group.Name">New Campaign</a>
                     &middot;
+                    <a asp-page="Edit" asp-route-groupId="@group.ContactGroupId">Edit</a>
+                    &middot;
                     <a asp-page="Delete" asp-route-groupId="@group.ContactGroupId">Delete</a>
                 </td>
             </tr>
         }
     </tbody>
 </table>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
