@@ -1,0 +1,28 @@
+@page
+@model ContactApp.Pages.Groups.Index
+
+@{
+    ViewData["Title"] = "Contact Groups";
+}
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col" class="text-end"># of contacts</th>
+            <th scope="col" class="text-end"># of campaigns</th>
+            <th scope="col">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var group in Model.ContactGroups)
+        {
+            <tr>
+                <td>@group.Name</td>
+                <td class="text-end">@group.NumberOfContacts</td>
+                <td class="text-end">@group.NumberOfCampaigns</td>
+                <td><a asp-page="Delete" asp-route-groupId="@group.ContactGroupId">Delete</a></td>
+            </tr>
+        }
+    </tbody>
+</table>

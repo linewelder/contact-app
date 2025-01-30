@@ -29,4 +29,9 @@ public class ContactGroup
     /// Navigation collection for the contacts in the group
     /// </summary>
     public ICollection<Contact> Contacts { get; set; } = null!;
+
+    /// <summary>
+    /// Navigation collection for the marketing campaigns that targeted the group
+    /// </summary>
+    public ICollection<Campaign> Campaigns { get; set; } = null!;
 }
