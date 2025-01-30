@@ -1,0 +1,33 @@
+@page "/Groups/{groupId:int}/Edit"
+@model ContactApp.Pages.Groups.Edit
+
+@{
+    ViewData["Title"] = $"Edit Group {Model.ContactGroup.Name}";
+}
+
+<h1>Edit Contact Group</h1>
+
+<form method="post">
+    <div class="form-group">
+        <label for="name">Name:</label>
+        <input asp-for="ContactGroup.Name" name="ContactGroup.Name"
+               id="name" class="form-control"></input>
+        <span asp-validation-for="ContactGroup.Name" class="text-danger"></span>
+    </div>
+
+    <div class="mt-3 row">
+        <div class="col-auto">
+            <button class="btn btn-primary" type="submit">Save</button>
+        </div>
+        <div class="col"></div>
+        <div class="col-auto">
+            <a class="btn btn-danger" asp-page="Delete" asp-route-groupId="@Model.ContactGroup.ContactGroupId">
+                Delete
+            </a>
+        </div>
+    </div>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
