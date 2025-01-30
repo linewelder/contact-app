@@ -7,6 +7,21 @@
 
 <h1>Contact Groups</h1>
 
+<form method="post">
+    <div asp-validation-summary="All" class="text-danger"></div>
+
+    <div class="row mb-2">
+        <div class="col-auto p-0">
+            <input asp-for="NewContactGroup" name="NewContactGroup"
+                   id="NewContactGroup" class="form-control"
+                   placeholder="Create New Group"></input>
+        </div>
+        <div class="col-auto">
+            <button type="submit" class="btn btn-primary">Create</button>
+        </div>
+    </div>
+</form>
+
 <table class="table table-striped">
     <thead>
         <tr>
