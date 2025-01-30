@@ -1,0 +1,36 @@
+@page "/Groups/{groupId:int}/Delete"
+@model ContactApp.Pages.Groups.Delete
+
+@{
+    ViewData["Title"] = $"Delete Group {Model.ContactGroup.Name}";
+}
+
+@if (Model.ContactGroup.CanBeDeleted)
+{
+    <h1>Are you sure you want to delete group "@Model.ContactGroup.Name"?</h1>
+
+    @if (Model.ContactGroup.NumberOfContacts > 0)
+    {
+        <p>
+            The @UiHelpers.Pluralize(Model.ContactGroup.NumberOfContacts, "contact", "contacts")
+            that are in the group will not be deleted with it.
+        </p>
+    }
+    else
+    {
+        <p>There are no contacts in the group</p>
+    }
+
+    <form method="post">
+        <button type="submit" class="btn btn-outline-danger">Delete</button>
+        <a class="btn btn-primary" asp-page="Index">Go back</a>
+    </form>
+}
+else
+{
+    <h1>Group "@Model.ContactGroup.Name" cannot be deleted</h1>
+    <p class="lead">
+        As it has been used in @UiHelpers.Pluralize(Model.ContactGroup.NumberOfCampaigns, "campaign", "campaigns").
+    </p>
+    <p><a class="btn btn-primary" asp-page="Index">Go back</a></p>
+}
